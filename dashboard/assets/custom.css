@@ -1,0 +1,15 @@
+
+.dash-slider-mark {
+    color: #8B8FA8;
+}
+.dash-input-container, .dash-slider-tooltip {
+    background-color: #2A2D3E;
+    color: #E8EAF0;
+    border: 1px solid #4C8BF5;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.rc-slider-tooltip-arrow {
+    border-top-color: #2A2D3E !important;
+}
