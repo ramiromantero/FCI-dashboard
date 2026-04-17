@@ -1,3 +1,33 @@
+# ─── Proyecto FCI Argentina ─────────────────────────
+# Base local de snapshots (se regenera al arrancar)
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Datos crudos y exportes (pueden pesar y cambian todo el tiempo)
+*.csv
+!requirements*.csv
+fondos_hoy.csv
+rendimiento_*.csv
+rendimiento_*.png
+
+# Logs del snapshot schedulado
+snapshot_diario.log
+*.log
+
+# Env vars y secretos
+.env
+.env.local
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ─── Python (template original) ─────────────────────
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

@@ -1,0 +1,30 @@
+# Render Blueprint — deploy con 1 click
+# https://render.com/docs/infrastructure-as-code
+#
+# Uso:
+#   1. Pushear este archivo al repo
+#   2. En dashboard.render.com → Blueprints → New Blueprint → elegir repo
+#   3. Render levanta todo automaticamente
+#
+# Notas:
+#   - Free tier: el servicio se duerme despues de 15 min sin trafico
+#     y tarda ~15s en despertarse en el primer request. Normal.
+#   - Filesystem efimero: se resetea en cada deploy. El DataLayer
+#     ya maneja eso bajando snapshot fresco al arrancar.
+
+services:
+  - type: web
+    name: fci-dashboard
+    runtime: python
+    region: oregon          # Render free tier: oregon, ohio, frankfurt, singapore
+    plan: free               # upgrade a starter ($7/mes) si queres sin sleep
+    branch: main             # ajusta si usas otra branch
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:server --workers 2 --threads 4 --timeout 180 --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: TZ
+        value: "America/Argentina/Buenos_Aires"
+    healthCheckPath: /
+    autoDeploy: true         # cada push a main → redeploy automatico

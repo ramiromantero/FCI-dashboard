@@ -752,7 +752,7 @@ footer = html.Div([
                   "lineHeight": "1.6"}),
         html.P([
             "Proyecto independiente · ",
-            link_ext("Código en GitHub", "https://github.com/"),
+            link_ext("Código en GitHub", "https://github.com/ramiromantero/FCI-dashboard"),
             " · Construido con Dash + Plotly · No afiliado a CAFCI, CNV ni ",
             "ninguna administradora.",
         ], style={"color": TEXTO2, "fontSize": "11px", "marginBottom": "0",
